@@ -1,0 +1,38 @@
+body{
+    background-color: #FF0;
+    color: blue;
+    padding: 0;
+    margin: 0;
+}
+#layout{
+    display: grid;
+    grid-template-areas: 
+    'top '
+    'meio '
+    'footer ';
+    /* grid-template-rows: 50px 50% 25px; */
+}
+#footer{
+    grid-area: footer;
+    background-color: blue;
+    height: 25px;
+}
+#top{
+    grid-area: top;
+    background-color: red;
+    height: 50px;
+}
+#meio{
+    grid-area: meio;
+    background-color: green;
+    height: auto;
+    display:grid;
+    
+    ;
+}
+#meio div {
+    text-align: center;
+    margin: 10px auto;
+    width: 25px;
+    background-color: pink;
+}
