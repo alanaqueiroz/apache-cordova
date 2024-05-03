@@ -6,8 +6,8 @@
         <meta name="msapplication-tap-highlight" content="no">
         <meta name="viewport" content="initial-scale=1, width=device-width, viewport-fit=cover">
         <meta name="color-scheme" content="light dark">
-        <link href="css/estilo.css" rel="stylesheet" />
         <link href="css-bootstrap/bootstrap.css" rel="stylesheet" />
+        <link href="css/estilo.css" rel="stylesheet" />
         <title>App</title>
         <style>
             body {
@@ -17,16 +17,6 @@
         </style>
     </head>
     <body>
-
-        <nav class="navbar bg-body-tertiary">
-            <div class="container-fluid">
-              <form class="d-flex" role="search">
-                <input class="form-control me-2" type="search" placeholder="Search" aria-label="CEP" id="cep" />
-                <button class="btn btn-outline-success" type="submit" id="botao">Consultar</button>
-              </form>
-            </div>
-          </nav>
-
 
         <div class="row">
             <div class="col-sm-12">
@@ -42,7 +32,30 @@
         </div> 
 
         </br>
+
+        <div class="row">
+            <div class="col-xs-12">
+                <label>Nome</label>
+                <input type="text" id="nome"/>
+            </div>
+        </div>
         
+        <div class="row">
+            <div class="col-xs-12">
+                <label>Documento</label>
+                <input type="text" id="documento"/>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-xs-12">
+                <label>Celular</label>
+                <input type="text" id="celular"/>
+            </div>
+        </div>
+
+        </br>
+
         <div class="row">
             <div class="col-xs-12">
                 <label>Endereço</label>
@@ -58,13 +71,29 @@
         </div>
 
         <div class="row">
+            <div class="col-sm-12">
+                <label>Numero</label>
+                <input type="text" id="numero" />
+            </div>
+        </div>
+
+        <div class="row">
             <div class="col-xs-12">
                 <label>Localidade</label>
                 <input type="text" id="localidade"/>
             </div>
         </div>
 
+        </br>
+
+        <div class="row">
+            <div class="col-sm-12">
+                <button class="btn btn-sucess" onclick"enviar()">Salvar Dados</button>
+            </div>
+        </div> 
+
        <script src="js-bootstrap/bootstrap.bundle.js"></script>
        <script src="js/index.js"></script>
+       <script src="js/cadastro.js"></script>
     </body>
 </html>
