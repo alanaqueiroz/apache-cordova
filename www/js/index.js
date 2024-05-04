@@ -10,13 +10,13 @@ function consultacep()
         
         campo.value = objetoCEP.cep
 
-        let campoEndereco = document.querySelector("#logradouro") 
+        let campoEndereco = document.querySelector("#endereco") 
         campoEndereco.value = objetoCEP.logradouro
 
         let campoBairro = document.querySelector("#bairro") 
         campoBairro.value = objetoCEP.bairro
 
-        let campoLocalidade = document.querySelector("#localidade") 
+        let campoLocalidade = document.querySelector("#cidade") 
         campoLocalidade.value = objetoCEP.localidade
     }
 }
