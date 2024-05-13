@@ -1,4 +1,4 @@
-function lerclientes() 
+function lerclientes()
 {
     let requisicao = new XMLHttpRequest();
     let url = "https://etec.fernandograciano.com.br/listarclientes.php";
@@ -6,19 +6,22 @@ function lerclientes()
     requisicao.send();
     requisicao.onload = function()
     {
-        let corpotable = document.querySelector("#corpotabela")
+        
+        let corpotabela = document.querySelector("#corpotabela")
         let dados = JSON.parse(this.response)
-        dados.forEach(function (valor, chave)
+        console.log(dados)
+        dados.forEach( function (valor, chave)
         {
             let novalinha = document.createElement("tr")
             let celulaNome = document.createElement("td")
             let celulaCelular = document.createElement("td")
-            celulaNome.inerHTML = valor.nome
-            celulaCelular.inerHTML = valor.celulaCelular
+            celulaNome.innerHTML = valor.nome
+            celulaCelular.innerHTML = valor.celular
             novalinha.append(celulaNome)
             novalinha.append(celulaCelular)
             corpotabela.append(novalinha)
         });
+
         console.log(this.response)
-    }
+    } 
 }
