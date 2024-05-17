@@ -1,165 +1,222 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="utf-8">
-        <meta name="format-detection" content="telephone=no">
-        <meta name="msapplication-tap-highlight" content="no">
-        <meta name="viewport" content="initial-scale=1, width=device-width, viewport-fit=cover">
-        <meta name="color-scheme" content="light dark">
-        <link href="css-bootstrap/bootstrap.css" rel="stylesheet" />
-        <link href="css/estilo.css" rel="stylesheet" />
-        <title>App</title>
-        <style>
-            body {
-                background-color: #0404fb;
-                color: white;
-                font-family: Arial, sans-serif;
-                margin: 0;
-                padding: 0;
-            }
-            .container {
-                max-width: 600px;
-                margin: 20px auto;
-                padding: 20px;
-                background-color: #fff;
-                border-radius: 8px;
-                box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-            }
-            .row {
-                margin-bottom: 15px;
-            }
-            .form-group {
-                margin-bottom: 20px;
-            }
-            label {
-                font-weight: bold;
-            }
-            input[type="text"] {
-                width: 100%;
-                padding: 8px;
-                border: 1px solid #ccc;
-                border-radius: 5px;
-            }
-            button.btn {
-                padding: 10px 20px;
-                border: none;
-                border-radius: 5px;
-                cursor: pointer;
-                color: #fff;
-            }
-            .btn-primary {
-                background-color: #007bff;
-            }
-            .btn-primary:hover {
-                background-color: #0056b3;
-            }
-        </style>
-    </head>
+<head>
+    <meta charset="utf-8">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="msapplication-tap-highlight" content="no">
+    <meta name="viewport" content="initial-scale=1, width=device-width, viewport-fit=cover">
+    <meta name="color-scheme" content="light dark">
+    <link href="css-bootstrap/bootstrap.css" rel="stylesheet" />
+    <link href="css/estilo.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+    <title>App</title>
+    <style>
+        body {
+            background-color: #0404fb;
+            color: white;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+        .row {
+            margin-bottom: 15px;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        label {
+            font-weight: bold;
+        }
+        input[type="text"],
+        input[type="password"] {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button.btn {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            color: #fff;
+        }
+        .btn-primary {
+            background-color: #007bff;
+        }
+        .btn-primary:hover {
+            background-color: #0056b3;
+        }
+        .btn-success {
+            background-color: #28a745;
+        }
+    </style>
+</head>
+<body>
 
-    <body>
-        <div class="row">
-            <div class="col-sm-6 mx-auto">
-                <label>Cep</label>
-                <input type="text" id="cep" />
+    <div data-role="page" id="listarClientes">
+        <div data-role="header">
+            <h1>Lista de Clientes</h1>
+        </div>
+        <div role="main" class="ui-content">
+            <button class="btn btn-primary" onclick="lerclientes()">Ler Clientes</button>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Nome</th>
+                        <th>Celular</th>
+                    </tr>
+                </thead>
+                <tbody id="corpotabela">
+                </tbody>
+            </table>
+            <p><a href="#cadastrarCliente" class="ui-btn ui-btn-inline ui-corner-all">Cadastrar Novo Cliente</a></p>
+        </div>
+        <div data-role="footer">
+            <h4>Page Footer</h4>
+        </div>
+    </div>
+
+    <div data-role="page" id="cadastrarCliente">
+        <div data-role="header">
+            <h1>Cadastrar Cliente</h1>
+        </div>
+        <div role="main" class="ui-content">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-6 mx-auto">
+                        <label>Cep</label>
+                        <input type="text" id="cep" />
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-6 mx-auto">
+                        <button id="botao" class="btn btn-primary">Consultar</button>
+                    </div>
+                </div> 
+
+                <br>
+
+                <div class="row">
+                    <div class="col-sm-6 mx-auto">
+                        <label>Nome</label>
+                        <input type="text" id="nome"/>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-6 mx-auto">
+                        <label>Documento</label>
+                        <input type="text" id="documento"/>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-6 mx-auto">
+                        <label>Celular</label>
+                        <input type="text" id="celular"/>
+                    </div>
+                </div>
+
+                <br>
+
+                <div class="row">
+                    <div class="col-sm-6 mx-auto">
+                        <label>Endereço</label>
+                        <input type="text" id="endereco"/>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-6 mx-auto">
+                        <label>Numero</label>
+                        <input type="text" id="numero" />
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-6 mx-auto">
+                        <label>Bairro</label>
+                        <input type="text" id="bairro"/>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-6 mx-auto">
+                        <label>Localidade</label>
+                        <input type="text" id="cidade"/>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-6 mx-auto">
+                        <label>Estado</label>
+                        <input type="text" id="estado"/>
+                    </div>
+                </div>
+
+                <br>
+
+                <div class="row">
+                    <div class="col-sm-6 mx-auto">
+                        <button class="btn btn-success" onclick="enviar()">Salvar Dados</button>
+                    </div>
+                </div> 
+
+                <p><a href="#listarClientes" class="ui-btn ui-btn-inline ui-corner-all">Voltar para Lista de Clientes</a></p>
             </div>
         </div>
+        <div data-role="footer">
+            <h4>Page Footer</h4>
+        </div>
+    </div>
 
-        <div class="row">
-            <div class="col-sm-6 mx-auto">
-                <button id="botao" class="btn btn-primary">Consultar</button>
-            </div>
-        </div> 
-
-        <br>
-
-        <div class="row">
-            <div class="col-sm-6 mx-auto">
-                <label>Nome</label>
-                <input type="text" id="nome"/>
+    <div data-role="page" id="loginPage">
+        <div data-role="header">
+            <h1>Login</h1>
+        </div>
+        <div role="main" class="ui-content">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-6 mx-auto">
+                        <label for="username">Usuário</label>
+                        <input type="text" name="username" id="username" />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-6 mx-auto">
+                        <label for="password">Senha</label>
+                        <input type="password" name="password" id="password" />
+                    </div>
+                </div>
+                <br>
+                <div class="row">
+                    <div class="col-sm-6 mx-auto">
+                        <button class="btn btn-primary">Login</button>
+                    </div>
+                </div>
             </div>
         </div>
-
-        <div class="row">
-            <div class="col-sm-6 mx-auto">
-                <label>Documento</label>
-                <input type="text" id="documento"/>
-            </div>
+        <div data-role="footer">
+            <h4>Page Footer</h4>
         </div>
+    </div>
 
-        <div class="row">
-            <div class="col-sm-6 mx-auto">
-                <label>Celular</label>
-                <input type="text" id="celular"/>
-            </div>
-        </div>
-
-        <br>
-
-        <div class="row">
-            <div class="col-sm-6 mx-auto">
-                <label>Endereço</label>
-                <input type="text" id="endereco"/>
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="col-sm-6 mx-auto">
-                <label>Numero</label>
-                <input type="text" id="numero" />
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="col-sm-6 mx-auto">
-                <label>Bairro</label>
-                <input type="text" id="bairro"/>
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="col-sm-6 mx-auto">
-                <label>Localidade</label>
-                <input type="text" id="cidade"/>
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="col-sm-6 mx-auto">
-                <label>Estado</label>
-                <input type="text" id="estado"/>
-            </div>
-        </div>
-
-        <br>
-
-        <div class="row">
-            <div class="col-sm-6 mx-auto">
-                <button class="btn btn-success" onclick="enviar()">Salvar Dados</button>
-            </div>
-        </div> 
-
-        <div class="row">
-            <div class="col-sm-6 mx-auto">
-                <button class="btn btn-success" onclick="lerclientes()">Ler Clientes</button>
-            </div>
-        </div> 
-
-        <table class="table">
-            <thead>
-                <tr>
-                    <th>Nome</th>
-                    <th>Celular</th>
-                </tr>
-            </thead> 
-            <tbody id="corpotabela"
-        </table>       
-        <button class"btn btn-danger" onclick="salvarLocal('Nome', 'Dimitry')"> Cadastrar no LocalStoreage </button>
-        <button class"btn btn-danger" onclick="lerLocal()"> Ler LocalStoreage </button>
-
-        <script src="js-bootstrap/bootstrap.bundle.js"></script>
-        <script src="js/index.js"></script>
-        <script src="js/cadastro.js"></script>
-        <script src="js/lerclientes.js"></script>
-        <script src="js/armazenar.js"></script>
-    </body>
+    <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+    <script src="js-bootstrap/bootstrap.bundle.js"></script>
+    <script src="js/index.js"></script>
+    <script src="js/cadastro.js"></script>
+    <script src="js/lerclientes.js"></script>
+    <script src="js/armazenar.js"></script>
+</body>
 </html>
